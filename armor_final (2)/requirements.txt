@@ -1,0 +1,8 @@
+openai-whisper
+transformers
+spacy
+huggingface-hub
+torch
+fastapi
+uvicorn
+python-multipart

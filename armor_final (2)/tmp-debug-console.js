@@ -1,0 +1,12 @@
+const { chromium } = require('playwright');
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  page.on('console', msg => console.log('CONSOLE', msg.type(), msg.text()));
+  page.on('pageerror', err => console.log('PAGEERROR', err.message));
+  await page.goto('http://localhost:8081/product', { waitUntil: 'networkidle' });
+  await page.click('button:has-text("Analyze")').catch(() => {});
+  await page.waitForTimeout(3000);
+  console.log('DONE');
+  await browser.close();
+})();

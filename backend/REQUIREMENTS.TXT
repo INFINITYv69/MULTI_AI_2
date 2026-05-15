@@ -1,0 +1,10 @@
+fastapi==0.135.0
+uvicorn==0.34.0
+faster-whisper==1.1.1
+groq==1.1.2
+transformers==5.5.0
+torch==2.6.0
+torchaudio==2.6.0
+sentencepiece==0.2.0
+python-multipart==0.0.22
+pydantic==2.12.5
