@@ -6,6 +6,13 @@ from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 from langgraph.graph import StateGraph, START, END
 from langchain_community.tools import DuckDuckGoSearchRun
+import omium
+
+# Explicitly instrument LangGraph for Omium
+try:
+    omium.instrument_langgraph()
+except:
+    pass
 
 # ── Shared state ──────────────────────────────────────────────────────────────
 class AgentState(TypedDict):

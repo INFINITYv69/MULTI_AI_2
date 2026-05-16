@@ -7,10 +7,15 @@ from pydantic import BaseModel
 import os, json, sqlite3, tempfile, shutil
 from datetime import datetime
 from pathlib import Path
+import omium
 from dotenv import load_dotenv
 from agents import FinancialAgents
 
 load_dotenv()
+
+# Initialize Omium for LangGraph observability
+if os.getenv("OMIUM_API_KEY"):
+    omium.init(project="Armor-AI-Finance")
 
 # Set Hugging Face token if available in .env
 if os.getenv("HF_TOKEN"):
